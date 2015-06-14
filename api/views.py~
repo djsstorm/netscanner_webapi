@@ -1,0 +1,42 @@
+from django.shortcuts import render
+from django.http import HttpResponse
+from api import api_functions
+
+
+
+def poweron(request):
+    res = api_functions.power_on()
+    return HttpResponse(res)
+
+
+
+def poweroff(request):
+    res = api_functions.power_off()
+    return HttpResponse(res)
+
+def systemhealth(request):
+    res = api_functions.get_system_health()
+    #return render(request, 'api/system_health.html', res)
+    return HttpResponse(res)
+
+
+def logger(request):
+    res = api_functions.get_logger()
+    #return render(request, 'api/logger.html', res)
+    return HttpResponse(res)
+
+
+def systemstatus(request):
+    res = api_functions.get_system_status()
+    return HttpResponse(res)
+
+def hosts(request):
+    res = api_functions.get_hosts(self)
+    #return render(request, 'api/hosts.html', res)
+    return HttpResponse(res)
+
+
+def securitybreaches(request):
+    res = api_functions.get_security_breaches()
+    return HttpResponse(res)
+

@@ -1,0 +1,94 @@
+__author__ = 'daniel'
+
+
+from katonda_net_scanner.ScannerOOP import SystemManager
+from threading import Thread
+from time import sleep
+
+import time
+
+class NetScanner_Thread(Thread):
+
+    def run(self):
+        sys_man.turn_system_on()
+
+    def stop(self):
+        sys_man.turn_system_off()
+
+
+class Manager():
+
+    def __init__(self):
+        self.thread = NetScanner_Thread()
+
+    def turn_system_on(self):
+        self.thread.start()
+        #self.thread.join()
+        return True
+
+    def turn_system_off(self):
+      #  if self.thread is not None:
+      self.thread.stop()
+      return True
+
+    def get_system_status(self):
+        return sys_man.get_system_status()
+
+    def get_hosts(self):
+        return sys_man.get_hosts()
+
+    def get_security_breaches(self):
+        return sys_man.get_security_breaches()
+
+
+#sys_man = SystemManager()
+#man = Manager()
+#man.turn_system_on()
+#sleep(5)
+#man.turn_system_off()
+
+
+
+
+
+'''host = Host('127.0.0.1', 'localhost')
+scanManager = ScanManager()
+scan1 = scanManager.scan(host)
+scan2 = scanManager.scan(host)
+scansTable = ScansTable("ex2.db")
+portsTable = PortsTable("ex2.db")
+portsTable.connect()
+scansTable.connect()
+scansTable.create_table()
+portsTable.create_table()
+
+scansTable.insert(scan1.get_id(), scan1._host.get_ip(), scan1._timestamp)
+for port in scan1.open_ports:
+    portsTable.insert(scan1.get_id(), port)
+
+
+
+scansTable.insert(scan2.get_id(), scan2._host.get_ip(), scan2._timestamp)
+
+for port in scan2.open_ports:
+    portsTable.insert(scan2.get_id(), port)
+
+diff = diff()
+
+
+comparedScanResults = diff.calcDiff(scansTable.get(scan1.get_id()), scansTable.get(scan2.get_id()))
+scansTable.disconnect()'''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
